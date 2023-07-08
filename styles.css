@@ -1,0 +1,37 @@
+/* Reset default browser styles */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Center the content vertically and horizontally */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.text {
+  flex: 1;
+}
+
+img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
