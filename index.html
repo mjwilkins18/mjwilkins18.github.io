@@ -2,105 +2,22 @@
 layout: default
 ---
 
-<section id="hero">
-  <div class="hero-text">
-    <h1>MICHAEL J. WILKINS</h1>
-    <h2>Email</h2>
-    <h2>LinkedIn</h2>
-    <p>WELCOME!</p>
-    <p>My name is Mike Wilkins, and I am a Computer Engineering Ph.D. student at Northwestern University co-advised by Dr. Peter Dinda and Dr. Nikos Hardavellas. I am also a visiting student at Argonne National Laboratory co-advised by Yanfei Guo and Rajeev Thakur. My research aims to improve the programming experience for high-performance computing systems. Below you will find details regarding my experiences and current/past projects.</p>
-    <a href="path-to-cv.pdf" class="btn">Click Here for Downloadable CV</a>
-  </div>
-</section>
 
-<img src="/assets/headshot.webp" alt="Headshot">
+{% include career-profile.html %}
 
-<section id="education">
-  <div class="container">
-    <h2>EDUCATION</h2>
-    <ul>
-      <li>PH.D. COMPUTER ENGINEERING, NORTHWESTERN UNIVERSITY<br>Expected: 2023<br>2019-2020 Royal E. Cabell Fellow<br>Co-advised by Peter Dinda and Nikos Hardavellas</li>
-      <li>M.S. COMPUTER ENGINEERING, NORTHWESTERN UNIVERSITY<br>2021<br>GPA: 3.92</li>
-      <li>B.S. COMPUTER ENGINEERING, ROSE-HULMAN INSTITUTE OF TECHNOLOGY<br>2019<br>GPA: 3.93<br>Class of 1940 Endowed Scholarship Recipient<br>Graduated Summa Cum Laude</li>
-    </ul>
-  </div>
-</section>
+{% unless site.data.data.sidebar.education %}
+  {% include education.html %}
+{% endunless %}
 
-<section id="research">
-  <div class="container">
-    <h2>RESEARCH PROJECTS</h2>
-    <h3>HIGH-LEVEL PARALLEL LANGUAGES FOR HPC</h3>
-    <p>Ongoing</p>
-    <ul>
-      <li>Developing a new distributed parallel runtime for the Standard ML language targeted at HPC applications</li>
-      <li>Created a new version of the NAS benchmark suite using MPL (a parallel compiler for Standard ML) to enable direct comparison between HLPLs and lower-level languages for HPC</li>
-    </ul>
-    <h3>MPI COLLECTIVE AUTOTUNING USING ML</h3>
-    <p>Ongoing</p>
-    <ul>
-      <li>Developing a machine-learning autotuner that automatically selects the optimal MPI collective algorithm</li>
-      <li>Invented multiple optimizations to make ML-based MPI autotuning feasible on large-scale systems</li>
-    </ul>
-    <h3>CACHE COHERENCE FOR HIGH-LEVEL PARALLEL LANGUAGES</h3>
-    <p>2020-2022</p>
-    <ul>
-      <li>Identified a low-level memory property called WARD that can be introduced by construction in high-level parallel programs</li>
-      <li>Implemented a custom cache coherence protocol in the Sniper architectural simulator and found an average speedup of 1.46 across the PBBS benchmark suite</li>
-    </ul>
-    <h3>DEVELOPING COMPUTATIONAL ARCHITECTURES (DECA)</h3>
-    <p>2017-2019</p>
-    <ul>
-      <li>Developed DeCA: a platform that enables application researchers to prototype FPGA accelerator designs through industry-standard tools and custom software</li>
-      <li>Created a custom FPGA accelerator using DeCA for a neuroscience application to showcase the platform’s capabilities; achieved 1.5x speedup</li>
-    </ul>
-  </div>
-</section>
+{% include experiences.html %}
 
-<section id="experience">
-  <div class="container">
-    <h2>INDUSTRY EXPERIENCE</h2>
-    <h3>RESEARCH AIDE/VISITING STUDENT, ARGONNE NATIONAL LABORATORY</h3>
-    <p>2020-Present</p>
-    <ul>
-      <li>Active collaboration towards my thesis work with ANL researchers</li>
-      <li>Completed a summer internship studying collective algorithm performance</li>
-      <li>Earned perpetual external funding from ANL for the remainder of my Ph.D.</li>
-    </ul>
-    <h3>ENGINEERING LEADERSHIP PROGRAM (ELP) INTERN, NATIONAL INSTRUMENTS</h3>
-    <p>Summer 2018</p>
-    <ul>
-      <li>Engaged with technical leaders through field presentations to top technology companies in the Seattle area</li>
-      <li>Assisted customers to design and troubleshoot data-acquisition applications using NI platforms</li>
-    </ul>
-    <h3>TRAILBLAZER INTERN, FLEXWARE INNOVATION</h3>
-    <p>Summer 2017</p>
-    <ul>
-      <li>Designed an innovative RFID tracking solution to repair a malfunctioning inventory locating system</li>
-      <li>Produced a full-stack BI database solution analyzing internal employee and revenue data</li>
-    </ul>
-    <h3>DIRECTOR OF TOOL SERVICES, POWER SOLUTIONS INTERNATIONAL</h3>
-    <p>Summer 2016</p>
-    <ul>
-      <li>Organized and managed the company’s inventory of CNC machining tools, valued at more than $500,000</li>
-      <li>Trained company technicians on new processes and managed tool services employees</li>
-    </ul>
-  </div>
-</section>
+{% include certifications.html %}
 
-<section id="publications">
-  <div class="container">
-    <h2>PUBLICATIONS</h2>
-    <ul>
-      <li>"WARDEN: SPECIALIZING CACHE COHERENCE FOR HIGH-LEVEL PARALLEL LANGUAGES"<br>Michael Wilkins, Sam Westrick, Vijay Kandiah, Alex Bernat, Brian Suchy, Enrico Armenio Deiana, Simone Campanoni, Umut Acar, Peter Dinda, Nikos Hardavellas<br>CGO'23</li>
-      <li>"PROGRAM STATE ELEMENT CHARACTERIZATION"<br>Enrico Armenio Deiana, Brian Suchy, Michael Wilkins, Brian Homerding, Tommy McMichen, Katarzyna Dunajewski, Peter Dinda, Nikos Hardavellas, Simone Campanoni<br>CGO'23</li>
-      <li>"ACCLAIM: ADVANCING THE PRACTICALITY OF MPI COLLECTIVE COMMUNICATION AUTOTUNING USING MACHINE LEARNING"<br>Michael Wilkins, Yanfei Guo, Rajeev Thakur, Peter Dinda, Nikos Hardavellas<br>CLUSTER'22</li>
-      <li>"A FACT-BASED APPROACH: MAKING MACHINE LEARNING COLLECTIVE AUTOTUNING FEASIBLE ON EXASCALE SYSTEMS"<br>Michael Wilkins, Yanfei Guo, Rajeev Thakur, Nikos Hardavellas, Peter Dinda, Min Si<br>ExaMPI'21: Workshop on Ex
-    </ul>
-  </div>
-</section>
+{% include projects.html %}
 
-<footer>
-  <div class="container">
-    <p>Contact: your.email@example.com</p>
-  </div>
-</footer>
+{% include oss-contributions.html %}
+
+{% include publications.html %}
+
+{% include skills.html %}
+
