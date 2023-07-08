@@ -3,262 +3,189 @@
 #
 
 sidebar:
-    position: right # position of the sidebar : left or right
+    position: left # position of the sidebar : left or right
     about: True # set to False or comment line if you want to remove the "how to use?" in the sidebar
     education: True # set to False if you want education in main section instead of in sidebar
 
     # Profile information
-    name: Alan Doe
-    tagline: Full Stack Developer
-    avatar: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
+    name: Mike Wilkins
+    tagline: Ph.D. Student, Northwestern University
+    avatar: headshot.webp  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
     # Sidebar links
-    email: hello@webjeda.com
-    phone: 012 345 6789
-    timezone: America/Cancun Timezone
-    citizenship:
-    website: blog.webjeda.com #do not add http://
-    linkedin: alandoe
-    xing: alandoe
-    github: sharu725
-    telegram: # add your nickname without '@' sign
-    gitlab:
-    bitbucket:
-    twitter: '@webjeda'
-    stack-overflow: # Number/Username, e.g. 123456/alandoe
-    codewars:
-    goodreads: # Number-Username, e.g. 123456-alandoe
-    pdf: http://www.africau.edu/images/default/sample.pdf
+    email: wilkins@u.northwestern.edu
+    phone: 630 715 8212
+    # timezone: America/Cancun Timezone
+    # citizenship:
+    # website: blog.webjeda.com #do not add http://
+    # linkedin: aland
+    # xing: alandoe
+    # github: sharu725
+    # telegram: # add your nickname without '@' sign
+    # gitlab:
+    # bitbucket:
+    # twitter: '@webjeda'
+    # stack-overflow: # Number/Username, e.g. 123456/alandoe
+    # codewars:
+    # goodreads: # Number-Username, e.g. 123456-alandoe
+    # pdf: http://www.africau.edu/images/default/sample.pdf
 
-    languages:
-      title: Languages
-      info:
-        - idiom: English
-          level: Native
+    # languages:
+    #  title: Languages
+    #  info:
+    #    - idiom: English
+    #      level: Native
+    #
+    #    - idiom: French
+    #      level: Professional
+    #
+    #    - idiom: Spanish
+    #      level: Professional
 
-        - idiom: French
-          level: Professional
-
-        - idiom: Spanish
-          level: Professional
-
-    interests:
-      title: Interests
-      info:
-        - item: Climbing
-          link:
-
-        - item: Snowboarding
-          link:
-
-        - item: Cooking
-          link:
+    # interests:
+    #  title: Interests
+    #  info:
+    #    - item: Climbing
+    #      link:
+    #
+    #    - item: Snowboarding
+    #      link:
+    #
+    #    - item: Cooking
+    #      link:
 
 career-profile:
-    title: Career Profile
+    title: Welcome!
     summary: |
-      Summarise your career here lorem ipsum dolor sit amet, consectetuer
-      adipiscing elit. You can [download this free resume/CV template here]().
-      Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque
-      penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-      Donec quam felis, ultricies nec, pellentesque eu.
-      Second paragraph if required.
+        My name is Mike Wilkins, and I am a Computer Engineering Ph.D. student at Northwestern University co-advised by Dr. Peter Dinda and Dr. Nikos Hardavellas. 
+        I am also a visiting student at Argonne National Laboratory co-advised by Yanfei Guo and Rajeev Thakur. 
+        My research aims to improve the programming experience for high-performance computing systems. 
+        Below you will find details regarding my experiences and current/past projects.
+
 education:
     title: Education
     info:
-      - degree: MSc in Computer Science
-        university: University of London
-        time: 2011 - 2012
-        details: |
-          Describe your study here lorem ipsum dolor sit amet, consectetuer
-          adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-          sociis natoque penatibus et magnis dis parturient montes, nascetur
-          ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
-          pretium quis, sem.
-            - Bullet point
-            - Bullet point
-      - degree: BSc in Applied Mathematics
-        university: Bristol University
-        time: 2007 - 2011
-        details: |
-          Describe your study here lorem ipsum dolor sit amet, consectetuer
-          adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-          sociis natoque penatibus et magnis dis parturient montes, nascetur
-          ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
-          pretium quis, sem.
-            - Bullet point
-            - Bullet point
+      - degree: Ph.D. Computer Engineering
+        university: Northwestern University
+        time: exp. 2023
+      - degree: M.S. Computer Engineering
+        university: Northwestern University
+        time: 2021
+      - degree: B.S. Computer Engineering
+        university: Rose-Hulman Institute of Technology
+        time: 2019
+
 experiences:
     title: Experiences
     info:
-      - role: Lead Developer
-        time: 2015 - Present
-        company: Startup Hubs, San Francisco
+      - role: AI Research Intern
+        time: Summer 2023
+        company: Meta
         details: |
-          Describe your role here lorem ipsum dolor sit amet, consectetuer
-          adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-          Cum sociis natoque penatibus et magnis dis parturient montes,
-          nascetur ridiculus mus. Donec quam felis, ultricies nec,
-          pellentesque eu, pretium quis, sem. Nulla consequat massa quis
-          enim. Donec pede justo. Sed ut perspiciatis unde omnis iste natus
-          error sit voluptatem accusantium doloremque laudantium, totam rem
-          aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-          architecto beatae vitae dicta sunt explicabo.
-            - Bullet point
-            - Bullet point
-      - role: Senior Software Engineer
-        time: 2014 - 2015
-        company: Google, London
-        details: |
-          Describe your role here lorem ipsum dolor sit amet, consectetuer
-          adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-          Cum sociis natoque penatibus et magnis dis parturient montes,
-          nascetur ridiculus mus. Donec quam felis, ultricies nec,
-          pellentesque eu, pretium quis, sem.
-            - Bullet point
-            - Bullet point
-      - role: UI Developer
-        time: 2012 - 2014
-        company: Amazon, London
-        details: |
-          Describe your role here lorem ipsum dolor sit amet, consectetuer
-          adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-          Cum sociis natoque penatibus et magnis dis parturient montes,
-          nascetur ridiculus mus. Donec quam felis, ultricies nec,
-          pellentesque eu, pretium quis, sem.
-            - Bullet point
-            - Bullet point
+            - Member of the AI and Systems Co-Design research team
 
-certifications:
-      title: Certifications
-      list:
-        - name: CV Builder
-          start: 2020
-          end: 2021
-          organization: Microsoft
-          credentialid: 111-222
-          credentialurl: www.google.com
-          credentialname: Google
-          details: |
-            Details about cert. Lorem ipsum dolor sit amet, consectetur 
-            adipiscing elit.
-            Nullam eget orci purus. Nullam ultrices neque nibh. 
-            Aenean fermentum, felis vulputate suscipit accumsan, 
-            sem enim bibendum augue, sed convallis arcu lacus at dui. 
-            Pellentesque et nibh suscipit, vestibulum turpis eu, semper tortor. 
-            Praesent felis nibh, eleifend id eleifend id, dictum id enim. 
-            Praesent venenatis erat non augue suscipit consectetur. 
-            
-            Second paragraph. Sed eleifend enim ante, vitae efficitur purus 
-            fringilla vel. Ut euismod, sem sed vulputate venenatis, 
-            justo diam viverra velit, sed rhoncus leo leo eu justo.
-            Suspendisse placerat risus ante, sed porta nisi blandit at. 
-        - name: Git learning
-          start: 2019
-          end:
-          organization: Microsoft
-          credentialid: 111-222
-          credentialurl: www.github.com
-          credentialname: Github
-          details: |
-            Older certification. Lorem ipsum dolor sit amet, consectetur 
-            adipiscing elit.
-            Nullam eget orci purus. Nullam ultrices neque nibh. 
-            Aenean fermentum, felis vulputate suscipit accumsan, 
-            sem enim bibendum augue, sed convallis arcu lacus at dui. 
-            Pellentesque et nibh suscipit, vestibulum turpis eu, semper tortor. 
-            Praesent felis nibh, eleifend id eleifend id, dictum id enim. 
-            Praesent venenatis erat non augue suscipit consectetur. 
-        
+      - role: Research Aide/Visiting Student
+        time: 2020 - Present
+        company: Argonne National Laboratory
+        details: |
+            - Founded the MPI collective algorithm/machine learning project, initially under the supervision of Dr. Min Si and Dr. Pavan Balaji, now Dr. Yanfei Guo and Dr. Rajeev Thakur
+            - Earned perpetual external funding from ANL for the remainder of my Ph.D
+
+      - role: Engineering Leadership Program Intern
+        time: Summer 2018
+        company: National Instruments
+        details: |
+            - Engaged with technical leaders through field presentations to multiple companies in the Seattle area
+            - Assisted customers to design and troubleshoot data-acquisition applications using NI platforms
+
+      - role: Trailblazer Intern
+        time: Summer 2017
+        company: Flexware Innovation
+        details: |
+            - Designed an innovative RFID tracking solution to repair a malfunctioning inventory locating system
+            - Produced a full-stack BI database solution analyzing internal employee and revenue data
+
+      - role: Director of Tool Services
+        time: Summer 2016
+        company: Power Solutions International
+        details: |
+            - Organized and managed the company’s inventory of CNC machining tools, valued at more than $500,000
+            - Trained company technicians on new processes and managed tool services employees
+
 projects:
-    title: Projects
+    title: Research Projects
     intro: >
-      You can list your side projects in this
-      section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
-    assignments:
-      - title: Velocity
-        link: "#hook"
-        tagline: "A responsive website template designed to help startups promote, market and sell their products."
+          Here is a high-level description of my active and former research projects.
+    info:
+      - role: ML Autotuning for Generalized MPI Collective Algorithms
+        time: Ongoing
+        details: |
+            - Creating new generalized MPI collective algorithms and a machine-learning autotuner that automatically selects and optimizes the best algorithm
+            - Invented multiple optimizations to make ML-based MPI autotuning feasible on large-scale systems
+     
+      - role: High-Level Parallel Languages for HPC
+        time: Ongoing
+        details: |
+            - Developing a new hardware/software co-design for the Standard ML language targeted at HPC systems and applications, including AI
+            - Created a new version of the NAS benchmark suite using MPL (a parallel compiler for Standard ML) to enable direct comparison between HLPLs and lower-level languages for HPC
 
-      - title: DevStudio
-        link: "#"
-        tagline: "A responsive website template designed to help web developers/designers market their services."
+      - role: Cache Coherence for High-Level Parallel Languages
+        time: 2019-2022
+        details: |
+            - Identified a low-level memory property called WARD that can be introduced by construction in high-level parallel programs
+            - Implemented a custom cache coherence protocol in the Sniper architectural simulator and found an average speedup of 1.46x across the PBBS benchmark suite.
 
-      - title: Tempo
-        link: "#"
-        tagline: "A responsive website template designed to help startups promote their products or services and to attract users &amp; investors"
-
-      - title: Atom
-        link: "#"
-        tagline: "A comprehensive website template solution for startups/developers to market their mobile apps."
-
-      - title: Delta
-        link: "#"
-        tagline: "A responsive Bootstrap one page theme designed to help app developers promote their mobile apps"
-
-oss:
-    title: OSS Contributions
-    intro: >
-      You can list your open source software contributions in this
-      section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
-    contributions:
-      - title: Tempo
-        link: "#"
-        tagline: "A responsive website template designed to help startups promote their products or services and to attract users &amp; investors"
-
-      - title: Atom
-        link: "#"
-        tagline: "A comprehensive website template solution for startups/developers to market their mobile apps."
-
-      - title: Delta
-        link: "#"
-        tagline: "A responsive Bootstrap one page theme designed to help app developers promote their mobile apps"
+      - role: Compiler and Runtime Memory Observation Tool (CARMOT)
+        time: 2020-2022
+        details: |
+            - Implemented source code-level automatic parallelization tool  using compiler and runtime techniques
+            - Built a pintool using the Intel pin interface to report memory locations allocated and freed within statically compiled libraries
 
 publications:
     title: Publications
-    intro: |
-      You can list your publications in this section. Lorem ipsum dolor sit
-      amet, consectetur adipiscing elit. Vestibulum et ligula in nunc
-      bibendum fringilla a eu lectus.
     papers:
-      - title: The Art of Computer Programming
+      - title: "Generalized Collective Algorithms for the Exascale Era"
         link: "#"
-        authors: Donald E. Knuth
-        conference: Addison-Wesley, 1968
+        authors: <strong>Michael Wilkins</strong>, Hanming Wang, Peizhi Liu, Bangyen Pham, Yanfei Guo, Rajeev Thakur, Nikos Hardavellas, and Peter Dinda
+        conference: CLUSTER'23
 
-      - title: "Genetic Programming III: Darwinian Invention &amp; Problem Solving"
+      - title: "Evaluating Functional Memory-Managed Parallel Languages for HPC using the NAS Parallel Benchmarks"
         link: "#"
-        authors: Koza, J.R., Andre, D., Bennett, F.H., Keane, M.A.
-        conference: "Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1st edn. (1999)"
+        authors: <strong>Michael Wilkins</strong>, Garrett Weil, Luke Arnold, Nikos Hardavellas, Peter Dinda      
+        conference: HIPS'23 Workshop
 
-      - title: A syntax directed compiler for Algol 60
+      - title: "WARDen: Specializing Cache Coherence for High-Level Parallel Languages"
         link: "#"
-        authors: Edgar T. Irons
-        conference: "Comm. ACM 4 (1961), 51–55"
+        authors: <strong>Michael Wilkins</strong>, Sam Westrick, Vijay Kandiah, Alex Bernat, Brian Suchy, Enrico Armenio Deiana, Simone Campanoni, Umut Acar, Peter Dinda, Nikos Hardavellas
+        conference: CGO'23
+
+      - title: "CARMOT: Compiler and Runtime Memory Observation Tool"
+        link: "#"
+        authors: Enrico Deiana, Brian Suchy, <strong>Michael Wilkins</strong>, Brian Homerding, John McMichen, Nikos Hardavellas, Peter Dinda, Simone Campanoni
+        conference: CGO'23
+     
+      - title: "ACCLAiM: Advancing the Practicality of MPI Collective Communication Autotuning Using Machine Learning"
+        link: "#"
+        authors: <strong>Michael Wilkins</strong>, Yanfei Guo, Rajeev Thakur, Peter Dinda, Nikos Hardavellas      
+        conference: CLUSTER'22
+
+      - title: "A FACT-Based Approach: Making Machine Learning Collective Autotuning Feasible on Exascale Systems"
+        link: "#"
+        authors: <strong>Michael Wilkins</strong>, Yanfei Guo, Rajeev Thakur, Nikos Hardavellas, Peter Dinda, Min Si      
+        conference: ExaMPI'21 Workshop
+
+ 
 
 skills:
     title: Skills &amp; Proficiency
 
     toolset:
-      - name: Python & Django
-        level: 98%
-
-      - name: Javascript & jQuery
-        level: 98%
-
-      - name: Angular
-        level: 98%
-
-      - name: HTML5 & CSS
-        level: 95%
-
-      - name: Ruby on Rails
-        level: 85%
-
-      - name: Sketch & Photoshop
-        level: 60%
+      - name: Software/Scripting Languages
+      - list: C, C++, Python, Standard/Parallel ML, C#, LabVIEW, Java, SQL, Bash
+      - name: Simulators/Tools
+      - list: ZSim, gem5, Xilinx Vivado, Xilinx ISE, Quartus II, Modelsim, Multisim
+      - name: Hardware Description Languages
+      - list: Chisel, VHDL, Verilog, SPICE
 
 footer: >
-    Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>
+    Credit to <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a> for the base webpage template

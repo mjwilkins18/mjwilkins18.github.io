@@ -19,7 +19,7 @@
         <div class="time">{{ experience.time }}</div>
       </div><!--//upper-row-->
 
-      <div class="company">{{ experience.company }}</div>
+      <div class="company bold">{{ experience.company }}</div>
 
     </div><!--//meta-->
 
@@ -31,6 +31,12 @@
 
   </div><!--//item-->
   {% endfor %}
+
+<style>
+.bold {
+  font-weight: bold;
+}
+</style>
 
 </section><!--//section-->
 {% endif %}
