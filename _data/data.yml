@@ -9,7 +9,7 @@ sidebar:
 
     # Profile information
     name: Mike Wilkins
-    tagline: Ph.D. Student, Northwestern University
+    tagline: HPC/AI Researcher
     avatar: headshot.webp  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
     # Sidebar links
@@ -18,7 +18,7 @@ sidebar:
     # timezone: America/Cancun Timezone
     # citizenship:
     # website: blog.webjeda.com #do not add http://
-    # linkedin: aland
+    linkedin: www.linkedin.com/in/michael-wilkins-46b7b6128
     # xing: alandoe
     # github: sharu725
     # telegram: # add your nickname without '@' sign
@@ -57,9 +57,9 @@ sidebar:
 career-profile:
     title: Welcome!
     summary: |
-        My name is Mike Wilkins, and I am a Computer Engineering Ph.D. student at Northwestern University co-advised by Dr. Peter Dinda and Dr. Nikos Hardavellas. 
+        My name is Mike Wilkins, and I research high-performance computing systems, specifically optimizing for scientific and AI workloads.
+        This year, I expect to complete my Ph.D. Computer Engineering at Northwestern University under the advisement of Dr. Peter Dinda and Dr. Nikos Hardavellas. 
         I am also a visiting student at Argonne National Laboratory co-advised by Yanfei Guo and Rajeev Thakur. 
-        My research aims to improve the programming experience for high-performance computing systems. 
         Below you will find details regarding my experiences and current/past projects.
 
 education:
