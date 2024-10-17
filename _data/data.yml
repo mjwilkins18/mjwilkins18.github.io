@@ -57,8 +57,9 @@ career-profile:
     title: Welcome!
     summary: |
         My name is Mike Wilkins, and I research high-performance computing systems, specifically optimizing for scientific and AI workloads.
-        This year, I expect to complete my Ph.D. in Computer Engineering at Northwestern University under the advisement of Dr. Peter Dinda and Dr. Nikos Hardavellas. 
-        I am also a visiting student at Argonne National Laboratory co-advised by Yanfei Guo and Rajeev Thakur. 
+        I am currently a Maria Goeppert Mayer Fellow at Argonne National Laboratory, supervised by Dr. Yanfei Guo and
+        Rajeev Thakur.
+        I completed my Ph.D. in Computer Engineering at Northwestern University under the advisement of Dr. Peter Dinda and Dr. Nikos Hardavellas. 
         Below you will find details regarding my experiences and current/past projects.
 
 education:
@@ -66,7 +67,7 @@ education:
     info:
       - degree: Ph.D. Computer Engineering
         university: Northwestern University
-        time: exp. 2023
+        time: 2023
       - degree: M.S. Computer Engineering
         university: Northwestern University
         time: 2021
@@ -77,11 +78,29 @@ education:
 experiences:
     title: Experiences
     info:
+      - role: Maria Goeppert Mayer Fellow
+        time: Oct 2024 - Present
+        company: Argonne National Laboratory
+        details: |
+            - Leading my own research project at the intersection between HPC and AI, excited to share more soon!
+
+      - role: Software Engineer
+        time: Jan-Sep 2024
+        company: Cornelis Networks
+        details: |
+            - Optimized the OPX libfabric provider, achieving 5x bandwidth improvements for GPU communication among
+            other advancements
+            - Led the development of the reference libfabric provider for the Ultra Ethernet Consortium
+            - Created developer productivity tooling, including an OPX performance profiler and a runtime parameter
+            autotuner
+
       - role: AI Research Intern
         time: Summer 2023
         company: Meta
         details: |
-            - Member of the AI and Systems Co-Design research team
+            - Designed and implemented an application-aware communication (NCCL) autotuner for large-scale AI workloads
+            - Developed an AI application emulation tool that mimics production models by overlapping communication and
+            genericized compute kernels
 
       - role: Research Aide/Visiting Student
         time: 2020 - Present
@@ -181,8 +200,10 @@ skills:
     toolset:
       - name: Software/Scripting Languages
       - list: C, C++, Python, Standard/Parallel ML, C#, LabVIEW, Java, SQL, Bash
+      - name: Parallel Programming/Communication
+      - list: MPI, Libfabric, NCCL, CUDA, Parallel ML, PyTorch
       - name: Simulators/Tools
-      - list: ZSim, gem5, Xilinx Vivado, Xilinx ISE, Quartus II, Modelsim, Multisim
+      - list: ZSim, gem5, Xilinx Vivado, Xilinx ISE, Quartus II
       - name: Hardware Description Languages
       - list: Chisel, VHDL, Verilog, SPICE
 
