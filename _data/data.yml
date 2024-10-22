@@ -88,7 +88,7 @@ experiences:
         time: Jan-Sep 2024
         company: Cornelis Networks
         details: |
-            - Optimized the OPX libfabric provider, achieving 5x bandwidth improvements for GPU communication among
+            - Optimized the OPX libfabric provider, achieved a 5x bandwidth improvement for GPU communication among
             other advancements
             - Led the development of the reference libfabric provider for the Ultra Ethernet Consortium
             - Created developer productivity tooling, including an OPX performance profiler and a runtime parameter
@@ -103,10 +103,11 @@ experiences:
             genericized compute kernels
 
       - role: Research Aide/Visiting Student
-        time: 2020 - Present
+        time: 2020 - 2023
         company: Argonne National Laboratory
         details: |
-            - Founded the MPI collective algorithm/machine learning project, initially under the supervision of Dr. Min Si and Dr. Pavan Balaji, now Dr. Yanfei Guo and Dr. Rajeev Thakur
+            - Founded the MPI collective algorithm/machine learning project, initially under the supervision of Dr. Min
+            Si and Dr. Pavan Balaji, later Dr. Yanfei Guo and Dr. Rajeev Thakur
             - Earned perpetual external funding from ANL for the remainder of my Ph.D
 
       - role: Engineering Leadership Program Intern
