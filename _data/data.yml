@@ -13,13 +13,13 @@ sidebar:
     avatar: headshot.webp  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
     # Sidebar links
-    email: wilkins@u.northwestern.edu
+    email: wilkins@anl.gov
     # timezone: America/Cancun Timezone
     # citizenship:
     # website: blog.webjeda.com #do not add http://
-    linkedin: www.linkedin.com/in/michael-wilkins-46b7b6128
+    linkedin: mjwilkins418
     # xing: alandoe
-    # github: sharu725
+    github: mjwilkins18
     # telegram: # add your nickname without '@' sign
     # gitlab:
     # bitbucket:
@@ -163,33 +163,38 @@ projects:
 publications:
     title: Publications
     papers:
+      - title: "On Transparent Optimizations for Communication in Highly Parallel Systems"
+        link: "assets/pdfs/thesis-tech-report.pdf"
+        authors: <strong>Michael Wilkins</strong>
+        conference: Ph.D. Thesis
+
       - title: "Generalized Collective Algorithms for the Exascale Era"
-        link: "#"
+        link: "assets/pdfs/gen-collectives.pdf"
         authors: <strong>Michael Wilkins</strong>, Hanming Wang, Peizhi Liu, Bangyen Pham, Yanfei Guo, Rajeev Thakur, Nikos Hardavellas, and Peter Dinda
         conference: CLUSTER'23
 
       - title: "Evaluating Functional Memory-Managed Parallel Languages for HPC using the NAS Parallel Benchmarks"
-        link: "#"
+        link: "assets/pdfs/nas-mpl.pdf"
         authors: <strong>Michael Wilkins</strong>, Garrett Weil, Luke Arnold, Nikos Hardavellas, Peter Dinda      
         conference: HIPS'23 Workshop
 
       - title: "WARDen: Specializing Cache Coherence for High-Level Parallel Languages"
-        link: "#"
+        link: "assets/pdfs/warden.pdf"
         authors: <strong>Michael Wilkins</strong>, Sam Westrick, Vijay Kandiah, Alex Bernat, Brian Suchy, Enrico Armenio Deiana, Simone Campanoni, Umut Acar, Peter Dinda, Nikos Hardavellas
         conference: CGO'23
 
-      - title: "CARMOT: Compiler and Runtime Memory Observation Tool"
-        link: "#"
-        authors: Enrico Deiana, Brian Suchy, <strong>Michael Wilkins</strong>, Brian Homerding, John McMichen, Nikos Hardavellas, Peter Dinda, Simone Campanoni
+      - title: "Program State Element Characterization"
+        link: "assets/pdfs/psec.pdf"
+        authors: Enrico Deiana, Brian Suchy, <strong>Michael Wilkins</strong>, Brian Homerding, Tommy McMichen, Katarzyna Dunajewski, Nikos Hardavellas, Peter Dinda, Simone Campanoni
         conference: CGO'23
      
       - title: "ACCLAiM: Advancing the Practicality of MPI Collective Communication Autotuning Using Machine Learning"
-        link: "#"
+        link: "assets/pdfs/acclaim.pdf"
         authors: <strong>Michael Wilkins</strong>, Yanfei Guo, Rajeev Thakur, Peter Dinda, Nikos Hardavellas      
         conference: CLUSTER'22
 
       - title: "A FACT-Based Approach: Making Machine Learning Collective Autotuning Feasible on Exascale Systems"
-        link: "#"
+        link: "assets/pdfs/fact.pdf"
         authors: <strong>Michael Wilkins</strong>, Yanfei Guo, Rajeev Thakur, Nikos Hardavellas, Peter Dinda, Min Si      
         conference: ExaMPI'21 Workshop
 
