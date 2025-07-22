@@ -1,4 +1,26 @@
+# ------------------------------
+#  Website build artifacts
+# ------------------------------
 _site/
 .sass-cache/
 .jekyll-metadata
 .jekyll-cache
+
+# ------------------------------
+#  LaTeX build artifacts
+# ------------------------------
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+
+# ------------------------------
+#  Auto-generated resume sources
+# ------------------------------
+_resume/resume.tex
+

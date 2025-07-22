@@ -1,15 +1,52 @@
-\documentclass[a4paper,10pt]{article}
+%===============================================================================
+%  Compact two–column résumé
+%===============================================================================
+\documentclass[a4paper,9pt]{extarticle}      % extarticle genuinely understands 9 pt
 \usepackage[utf8]{inputenc}
-\usepackage{geometry}
-\geometry{margin=1in}
-\usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
 
-% ---------- LaTeX-escape helper (Jinja macro) ----------
+% ---------- Geometry & typography -------------------------------------------
+\usepackage[top=0.55in,bottom=0.55in,left=0.6in,right=0.6in]{geometry}
+\usepackage{microtype}
+
+% Main font: Helvetica clone; section headings will be bold rather than small-caps
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[scaled=0.92]{helvet}
+
+% ---------- Colors -----------------------------------------------------------
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{0A5275}
+
+% ---------- Layout / headings / lists ---------------------------------------
+\usepackage{paracol}
+\columnratio{0.28}             % sidebar : main content
+\setlength{\columnseprule}{0pt}
+
+\usepackage{titlesec}
+\titleformat{\section}
+  {\color{accent}\bfseries\large}   %   << no \scshape –– avoids small-caps warning
+  {}
+  {0pt}
+  {}
+  [\color{accent}\titlerule]
+\titlespacing*{\section}{0pt}{4pt}{4pt}
+
+\usepackage{enumitem}
+\setlist[itemize]{nosep,leftmargin=*}
+
+\usepackage{tabularx, array}
+{% raw %}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash\setlength{\parindent}{0pt}}p{#1}}
+{% endraw %}
+
+% ---------- Hyperlinks / icons ----------------------------------------------
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontawesome}       % comment out if you do not have FontAwesome
+
+% ---------- Jinja2 escape helper --------------------------------------------
 {% macro esc(s) -%}
 {{-  s
      | replace('\\', '\textbackslash{}')
-     | replace('&',  '\&')
+     | replace('&amp;',  '\&amp;')
      | replace('%',  '\%')
      | replace('$',  '\$')
      | replace('#',  '\#')
@@ -21,98 +58,111 @@
 -}}
 {%- endmacro %}
 
+%===============================================================================
 \begin{document}
+\pagestyle{empty}
 
-% --------------------------------------------------------
-% Name and tagline
-% --------------------------------------------------------
-\begin{center}
-  {\Huge \textbf{ {{ esc(sidebar.name) }} }}\\[0.2cm]
-  {\Large {{ esc(sidebar.tagline) }}}
-\end{center}
+\begin{paracol}{2}
+%-------------------------------------------------------------------------------
+% LEFT COLUMN
+%-------------------------------------------------------------------------------
+\begin{flushleft}
 
-% --------------------------------------------------------
-% Contact information
-% --------------------------------------------------------
-\noindent
-\textbf{Email:} \href{mailto:{{ sidebar.email }}}{{ sidebar.email }}\\
+% ---------- Name & Tagline ----------------------------------------------------
+{\huge\bfseries {{ esc(sidebar.name) }}\par}
+{\large {{ esc(sidebar.tagline) }}\par}
+\bigskip
+
+% ----- Contact ------------------------------------------------------------
+\color{accent}\rule{\columnwidth}{0.9pt}\color{black}\smallskip
+\footnotesize
+\begin{tabular}{@{}l@{}}  % no extra left/right padding
+\faEnvelope\; \href{mailto:{{ sidebar.email }}}{ {{ sidebar.email }} }\\
 {% if sidebar.linkedin %}
-\textbf{LinkedIn:} \href{https://linkedin.com/in/{{ sidebar.linkedin }}}{{ sidebar.linkedin }}\\
+\faLinkedin\; \href{https://linkedin.com/in/{{ sidebar.linkedin }}}{ linkedin.com/in/{{ sidebar.linkedin }} }\\
 {% endif %}
 {% if sidebar.github %}
-\textbf{GitHub:} \href{https://github.com/{{ sidebar.github }}}{{ sidebar.github }}\\
+\faGithub\; \href{https://github.com/{{ sidebar.github }}}{ github.com/{{ sidebar.github }} }\\
 {% endif %}
+\end{tabular}
+\normalsize
 
-\vspace{0.5cm}
+% ---------- Education ---------------------------------------------------------
+\color{accent}\rule{\columnwidth}{0.9pt}\color{black}\smallskip
+{\color{accent}\bfseries\MakeUppercase{ {{ esc(education.title) }} }}\par\smallskip
 
-% --------------------------------------------------------
-% Education
-% --------------------------------------------------------
-\section*{ {{ esc(education.title) }} }
-\begin{itemize}[leftmargin=*]
+\small                         % sidebar in \small, not \footnotesize
+\setlength{\tabcolsep}{0pt}    % no horizontal padding
+\begin{tabularx}{\columnwidth}{@{}p{0.85\columnwidth} >{\raggedleft\arraybackslash}X@{}}
 {% for edu in education.info %}
-  \item \textbf{ {{ esc(edu.degree) }}}, {{ esc(edu.university) }} ({{ esc(edu.time) }})
+\noindent\textbf{ {{ esc(edu.degree) }}} \\ {{ esc(edu.university) }} & %  ← no indent
+{{ esc(edu.time) }}\\[3pt]
+{% endfor %}
+\end{tabularx}
+\normalsize
+
+
+% ---------- Skills ------------------------------------------------------------
+\color{accent}\rule{\columnwidth}{0.9pt}\color{black}\smallskip
+{\color{accent}\bfseries\MakeUppercase{ {{ esc(skills.title) }} }}\par\smallskip
+\footnotesize
+\begin{itemize}
+{% for pair in skills.toolset | batch(2) %}
+  {% set name_dict = pair[0] %}
+  {% set list_dict = pair[1] %}
+  \item \textbf{ {{ esc(name_dict.name) }}:} {{ esc(list_dict.list) }}
 {% endfor %}
 \end{itemize}
+\normalsize
 
-\vspace{0.5cm}
+\end{flushleft}
 
-% --------------------------------------------------------
-% Experiences
-% --------------------------------------------------------
+\switchcolumn
+%-------------------------------------------------------------------------------
+% RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\raggedright               % make absolutely sure nothing is indented
+\setlength{\parindent}{0pt}
+
+% ---------- Experience --------------------------------------------------------
 \section*{ {{ esc(experiences.title) }} }
 {% for exp in experiences.info %}
-\textbf{ {{ esc(exp.role) }} } \hfill {{ esc(exp.time) }}\\
-\textit{ {{ esc(exp.company) }} }\\
-\begin{itemize}[leftmargin=*]
+\textbf{ {{ esc(exp.role) }} }\hfill {{ esc(exp.time) }}\par
+\textit{ {{ esc(exp.company) }} }\par
+\begin{itemize}
 {% for d in exp.details.split('\n') if d.strip() %}
   \item {{ esc(d.lstrip('-').strip()) }}
 {% endfor %}
 \end{itemize}
+{% if not loop.last %}\medskip{% endif %}
 {% endfor %}
 
-\vspace{0.5cm}
-
-% --------------------------------------------------------
-% Projects
-% --------------------------------------------------------
+% ---------- Projects ----------------------------------------------------------
 \section*{ {{ esc(projects.title) }} }
-{{ esc(projects.intro) }}
-
-\begin{itemize}[leftmargin=*]
+{{ esc(projects.intro) }}\par\medskip
+\begin{itemize}
 {% for p in projects.info %}
-  \item \textbf{ {{ esc(p.role) }} } ({{ esc(p.time) }})\\
-  \begin{itemize}[leftmargin=*]
-  {% for d in p.details.split('\n') if d.strip() %}
-    \item {{ esc(d.lstrip('-').strip()) }}
-  {% endfor %}
-  \end{itemize}
+  \item \textbf{ {{ esc(p.role) }} } ({{ esc(p.time) }})
+    \begin{itemize}
+    {% for d in p.details.split('\n') if d.strip() %}
+      \item {{ esc(d.lstrip('-').strip()) }}
+    {% endfor %}
+    \end{itemize}
 {% endfor %}
 \end{itemize}
 
-% --------------------------------------------------------
-% Publications
-% --------------------------------------------------------
+% ---------- Publications ------------------------------------------------------
 \section*{ {{ esc(publications.title) }} }
-\begin{itemize}[leftmargin=*]
+\begin{itemize}
 {% for pub in publications.papers %}
-  \item \textbf{ {{ esc(pub.title) }} }\\
-        \textit{ {{ pub.authors | striptags | escape }} }\\
-        {{ esc(pub.conference) }}\\
-        \href{ {{ pub.link }} }{PDF Link}
+  \item
+    \href{https://mjwilkins.org/{{ pub.link.lstrip('/') }}}%
+         {\textbf{ {{ esc(pub.title) }} }}\\
+    \emph{ {{ pub.authors | striptags | escape }} } •
+    {{ esc(pub.conference) }}
+  {% if not loop.last %}\medskip{% endif %}
 {% endfor %}
 \end{itemize}
 
-% --------------------------------------------------------
-% Skills
-% --------------------------------------------------------
-\section*{ {{ esc(skills.title) }} }
-\begin{itemize}[leftmargin=*]
-{% for pair in skills.toolset | batch(2) %}
-  {% set name_dict = pair[0] %}
-  {% set list_dict = pair[1] %}
-  \item \textbf{ {{ esc(name_dict.name) }} }: {{ esc(list_dict.list) }}
-{% endfor %}
-\end{itemize}
-
+\end{paracol}
 \end{document}

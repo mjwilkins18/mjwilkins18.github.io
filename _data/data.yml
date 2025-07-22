@@ -81,8 +81,8 @@ experiences:
         time: Oct 2024 - Present
         company: Argonne National Laboratory
         details: |
-            - Directed a $1M+ lab-funded research project, "Holistic Machine Learning Autotuning for Massive-Scale Artificial Intelligence for Science," supervising a team of 3 students to advance AI-driven scientific computing
-            - Developed and deployed ACCLAiM, an autotuner for collective communication, on production supercomputers including Aurora, delivering widespread performance improvements with speedups of up to 35x
+            - Directed a $1M+ lab-funded research project, "Holistic Machine Learning Autotuning for Massive-Scale Artificial Intelligence for Science," supervising a team of 3 students
+            - Developed and deployed ACCLAiM, an autotuner for collective communication, on production supercomputers including Aurora, delivering widespread speedups of up to 35x
             - Contributed major enhancements to MPICH, the leading open-source MPI implementation, with a focus on optimizing collective communication for high-performance computing environments.
       - role: Software Engineer
         time: Jan-Sep 2024
