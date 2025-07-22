@@ -56,11 +56,10 @@ sidebar:
 career-profile:
     title: Welcome!
     summary: |
-        My name is Mike Wilkins, and I research high-performance computing systems, specifically optimizing for scientific and AI workloads.
-        I am currently a Maria Goeppert Mayer Fellow at Argonne National Laboratory, supervised by Dr. Yanfei Guo and
-        Rajeev Thakur.
-        I completed my Ph.D. in Computer Engineering at Northwestern University under the advisement of Dr. Peter Dinda and Dr. Nikos Hardavellas. 
-        Below you will find details regarding my experiences and current/past projects.
+        My name is Mike Wilkins, and I research optimizations for AI workloads on high-performance computing systems.
+        As a Maria Goeppert Mayer Fellow at Argonne National Laboratory, I'm currently leading the development of a new holistic online autotuner. 
+        I previously completed my Ph.D. in Computer Engineering at Northwestern University and have industry experience at Cornelis Networks and Meta.
+        I am open to collaboration opportunities, please feel free to reach out with ideas or questions!
 
 education:
     title: Education
@@ -82,32 +81,29 @@ experiences:
         time: Oct 2024 - Present
         company: Argonne National Laboratory
         details: |
-            - Leading my own research project at the intersection between HPC and AI, excited to share more soon!
-
+            - Directed a $1M+ lab-funded research project, "Holistic Machine Learning Autotuning for Massive-Scale Artificial Intelligence for Science," supervising a team of 3 students to advance AI-driven scientific computing
+            - Developed and deployed ACCLAiM, an autotuner for collective communication, on production supercomputers including Aurora, delivering widespread performance improvements with speedups of up to 35x
+            - Contributed major enhancements to MPICH, the leading open-source MPI implementation, with a focus on optimizing collective communication for high-performance computing environments.
       - role: Software Engineer
         time: Jan-Sep 2024
         company: Cornelis Networks
         details: |
-            - Optimized the OPX libfabric provider, achieved a 5x bandwidth improvement for GPU communication among
-            other advancements
+            - Optimized the OPX libfabric provider, achieved a 5x bandwidth improvement for GPU communication among other advancements
             - Led the development of the reference libfabric provider for the Ultra Ethernet Consortium
-            - Created developer productivity tooling, including an OPX performance profiler and a runtime parameter
-            autotuner
+            - Created developer productivity tooling, including an OPX performance profiler and a runtime parameter autotuner
 
       - role: AI Research Intern
         time: Summer 2023
         company: Meta
         details: |
             - Designed and implemented an application-aware communication (NCCL) autotuner for large-scale AI workloads
-            - Developed an AI application emulation tool that mimics production models by overlapping communication and
-            genericized compute kernels
+            - Developed an AI application emulation tool that mimics production models by overlapping communication and genericized compute kernels
 
       - role: Research Aide/Visiting Student
         time: 2020 - 2023
         company: Argonne National Laboratory
         details: |
-            - Founded the MPI collective algorithm/machine learning project, initially under the supervision of Dr. Min
-            Si and Dr. Pavan Balaji, later Dr. Yanfei Guo and Dr. Rajeev Thakur
+            - Founded the MPI collective algorithm/machine learning project, initially under the supervision of Dr. Min Si and Dr. Pavan Balaji, later Dr. Yanfei Guo and Dr. Rajeev Thakur
             - Earned perpetual external funding from ANL for the remainder of my Ph.D
 
       - role: Engineering Leadership Program Intern
@@ -132,18 +128,23 @@ experiences:
             - Trained company technicians on new processes and managed tool services employees
 
 projects:
-    title: Research Projects
+    title: Sample Research Projects
     intro: >
-          Here is a high-level description of my active and former research projects.
+          Here is a high-level description of some of my active and former research projects.
     info:
-      - role: ML Autotuning for Generalized MPI Collective Algorithms
+      - role: Holistic Online Autotuning for Large-Scale Artificial Intelligence
         time: Ongoing
         details: |
-            - Creating new generalized MPI collective algorithms and a machine-learning autotuner that automatically selects and optimizes the best algorithm
+            - Creating a new autotuner for long-running distributed AI training workloads that improves model quality and workload efficiency during execution
+
+      - role: ML Autotuning for Generalized MPI Collective Algorithms
+        time: 2021-2024
+        details: |
+            - Created new MPI collective algorithms and a machine-learning autotuner (ACCLAiM) that automatically selects and optimizes the best algorithm
             - Invented multiple optimizations to make ML-based MPI autotuning feasible on large-scale systems
      
       - role: High-Level Parallel Languages for HPC
-        time: Ongoing
+        time: 2019-2023
         details: |
             - Developing a new hardware/software co-design for the Standard ML language targeted at HPC systems and applications, including AI
             - Created a new version of the NAS benchmark suite using MPL (a parallel compiler for Standard ML) to enable direct comparison between HLPLs and lower-level languages for HPC
@@ -153,12 +154,6 @@ projects:
         details: |
             - Identified a low-level memory property called WARD that can be introduced by construction in high-level parallel programs
             - Implemented a custom cache coherence protocol in the Sniper architectural simulator and found an average speedup of 1.46x across the PBBS benchmark suite.
-
-      - role: Compiler and Runtime Memory Observation Tool (CARMOT)
-        time: 2020-2022
-        details: |
-            - Implemented source code-level automatic parallelization tool  using compiler and runtime techniques
-            - Built a pintool using the Intel pin interface to report memory locations allocated and freed within statically compiled libraries
 
 publications:
     title: Publications
@@ -207,9 +202,9 @@ skills:
       - name: Software/Scripting Languages
       - list: C, C++, Python, Standard/Parallel ML, C#, LabVIEW, Java, SQL, Bash
       - name: Parallel Programming/Communication
-      - list: MPI, Libfabric, NCCL, CUDA, Parallel ML, PyTorch
+      - list: MPI, Libfabric, NCCL, CUDA, PyTorch, Parallel ML
       - name: Simulators/Tools
-      - list: ZSim, gem5, Xilinx Vivado, Xilinx ISE, Quartus II
+      - list: Sniper, gem5, ZSim, Xilinx Vivado, Xilinx ISE, Quartus II
       - name: Hardware Description Languages
       - list: Chisel, VHDL, Verilog, SPICE
 
