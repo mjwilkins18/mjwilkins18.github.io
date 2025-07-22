@@ -1,0 +1,118 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- LaTeX-escape helper (Jinja macro) ----------
+{% macro esc(s) -%}
+{{-  s
+     | replace('\\', '\textbackslash{}')
+     | replace('&',  '\&')
+     | replace('%',  '\%')
+     | replace('$',  '\$')
+     | replace('#',  '\#')
+     | replace('_',  '\_')
+     | replace('{',  '\{')
+     | replace('}',  '\}')
+     | replace('~',  '\textasciitilde{}')
+     | replace('^',  '\textasciicircum{}')
+-}}
+{%- endmacro %}
+
+\begin{document}
+
+% --------------------------------------------------------
+% Name and tagline
+% --------------------------------------------------------
+\begin{center}
+  {\Huge \textbf{ {{ esc(sidebar.name) }} }}\\[0.2cm]
+  {\Large {{ esc(sidebar.tagline) }}}
+\end{center}
+
+% --------------------------------------------------------
+% Contact information
+% --------------------------------------------------------
+\noindent
+\textbf{Email:} \href{mailto:{{ sidebar.email }}}{{ sidebar.email }}\\
+{% if sidebar.linkedin %}
+\textbf{LinkedIn:} \href{https://linkedin.com/in/{{ sidebar.linkedin }}}{{ sidebar.linkedin }}\\
+{% endif %}
+{% if sidebar.github %}
+\textbf{GitHub:} \href{https://github.com/{{ sidebar.github }}}{{ sidebar.github }}\\
+{% endif %}
+
+\vspace{0.5cm}
+
+% --------------------------------------------------------
+% Education
+% --------------------------------------------------------
+\section*{ {{ esc(education.title) }} }
+\begin{itemize}[leftmargin=*]
+{% for edu in education.info %}
+  \item \textbf{ {{ esc(edu.degree) }}}, {{ esc(edu.university) }} ({{ esc(edu.time) }})
+{% endfor %}
+\end{itemize}
+
+\vspace{0.5cm}
+
+% --------------------------------------------------------
+% Experiences
+% --------------------------------------------------------
+\section*{ {{ esc(experiences.title) }} }
+{% for exp in experiences.info %}
+\textbf{ {{ esc(exp.role) }} } \hfill {{ esc(exp.time) }}\\
+\textit{ {{ esc(exp.company) }} }\\
+\begin{itemize}[leftmargin=*]
+{% for d in exp.details.split('\n') if d.strip() %}
+  \item {{ esc(d.lstrip('-').strip()) }}
+{% endfor %}
+\end{itemize}
+{% endfor %}
+
+\vspace{0.5cm}
+
+% --------------------------------------------------------
+% Projects
+% --------------------------------------------------------
+\section*{ {{ esc(projects.title) }} }
+{{ esc(projects.intro) }}
+
+\begin{itemize}[leftmargin=*]
+{% for p in projects.info %}
+  \item \textbf{ {{ esc(p.role) }} } ({{ esc(p.time) }})\\
+  \begin{itemize}[leftmargin=*]
+  {% for d in p.details.split('\n') if d.strip() %}
+    \item {{ esc(d.lstrip('-').strip()) }}
+  {% endfor %}
+  \end{itemize}
+{% endfor %}
+\end{itemize}
+
+% --------------------------------------------------------
+% Publications
+% --------------------------------------------------------
+\section*{ {{ esc(publications.title) }} }
+\begin{itemize}[leftmargin=*]
+{% for pub in publications.papers %}
+  \item \textbf{ {{ esc(pub.title) }} }\\
+        \textit{ {{ pub.authors | striptags | escape }} }\\
+        {{ esc(pub.conference) }}\\
+        \href{ {{ pub.link }} }{PDF Link}
+{% endfor %}
+\end{itemize}
+
+% --------------------------------------------------------
+% Skills
+% --------------------------------------------------------
+\section*{ {{ esc(skills.title) }} }
+\begin{itemize}[leftmargin=*]
+{% for pair in skills.toolset | batch(2) %}
+  {% set name_dict = pair[0] %}
+  {% set list_dict = pair[1] %}
+  \item \textbf{ {{ esc(name_dict.name) }} }: {{ esc(list_dict.list) }}
+{% endfor %}
+\end{itemize}
+
+\end{document}
