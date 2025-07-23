@@ -11,12 +11,10 @@ sidebar:
   tagline: HPC/AI Researcher
   avatar: headshot.webp
   #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
-# Sidebar links
-email: wilkins@anl.gov
-website: blog.webjeda.com
-linkedin: mjwilkins418
-github: mjwilkins18
-pdf: http://www.africau.edu/images/default/sample.pdf
+  # Sidebar links
+  email: wilkins@anl.gov
+  linkedin: mjwilkins418
+  github: mjwilkins18
 career-profile:
   title: Welcome!
   summary: |
@@ -41,16 +39,16 @@ experiences:
       time: Oct 2024 - Present
       company: Argonne National Laboratory
       details: |
-        - Directed a $1M+ lab-funded research project, "Holistic Machine Learning Autotuning for Massive-Scale Artificial Intelligence for Science," supervising a team of 3 students
-        - Developed and deployed ACCLAiM, an autotuner for collective communication, on production supercomputers including Aurora, delivering widespread speedups of up to 35x
-        - Contributed major enhancements to MPICH, the leading open-source MPI implementation, with a focus on optimizing collective communication for high-performance computing environments.
+        - Directed an independent research program on autotuning and collective communication, supported by a 3-year, $1M award from Argonne
+        - Translated my MPI autotuning research into production, achieving speedups up to 35x for collective operations on Argonne’s exascale system, Aurora
+        - Contributed major enhancements to MPICH, the leading open-source MPI implementation, with a focus on optimizing collective communication for high-performance computing environments
     - role: Software Engineer
       time: Jan-Sep 2024
       company: Cornelis Networks
       details: |
-        - Optimized the OPX libfabric provider, achieved a 5x bandwidth improvement for GPU communication among other advancements
-        - Led the development of the reference libfabric provider for the Ultra Ethernet Consortium
-        - Created developer productivity tooling, including an OPX performance profiler and a runtime parameter autotuner
+        - Spearheaded major performance optimizations for the OPX libfabric provider, achieving 5× bandwidth improvements for GPU communications and other critical improvements
+        - Led the architecture and development of the reference libfabric provider for the Ultra Ethernet Consortium, achieving a key milestone in the standard’s development
+        - Created OPX developer tools, including a profiler and autotuner, boosting team velocity
     - role: AI Research Intern
       time: Summer 2023
       company: Meta
@@ -63,47 +61,33 @@ experiences:
       details: |
         - Founded the MPI collective algorithm/machine learning project, initially under the supervision of Dr. Min Si and Dr. Pavan Balaji, later Dr. Yanfei Guo and Dr. Rajeev Thakur
         - Earned perpetual external funding from ANL for the remainder of my Ph.D
-    - role: Engineering Leadership Program Intern
-      time: Summer 2018
-      company: National Instruments
-      details: |
-        - Engaged with technical leaders through field presentations to multiple companies in the Seattle area
-        - Assisted customers to design and troubleshoot data-acquisition applications using NI platforms
-    - role: Trailblazer Intern
-      time: Summer 2017
-      company: Flexware Innovation
-      details: |
-        - Designed an innovative RFID tracking solution to repair a malfunctioning inventory locating system
-        - Produced a full-stack BI database solution analyzing internal employee and revenue data
-    - role: Director of Tool Services
-      time: Summer 2016
-      company: Power Solutions International
-      details: |
-        - Organized and managed the company’s inventory of CNC machining tools, valued at more than $500,000
-        - Trained company technicians on new processes and managed tool services employees
+    - role: Undergraduate Internships
+      company: Power Solutions International (2016), Flexware Innovation (2017), National Instruments (2018)
 projects:
   title: Sample Research Projects
   intro: >
     Here is a high-level description of some of my active and former research projects.
   info:
-    - role: Holistic Online Autotuning for Large-Scale Artificial Intelligence
+    - role: ML Autotuning for MPI
       time: Ongoing
       details: |
-        - Creating a new autotuner for long-running distributed AI training workloads that improves model quality and workload efficiency during execution
-    - role: ML Autotuning for Generalized MPI Collective Algorithms
-      time: 2021-2024
+        - Invented many optimizations to make ML-based MPI autotuning feasible on large-scale systems
+        - Developed the world’s first exascale-capable MPI collective algorithm autotuner and achieved up to 20% speedups for production applications
+        - Exploring new “holistic” tuning methodologies to encompass performance-critical parameters across the software stack, targeting large scale AI workloads
+    - role: Algorithms for Collective Communication
+      time: Ongoing
       details: |
-        - Created new MPI collective algorithms and a machine-learning autotuner (ACCLAiM) that automatically selects and optimizes the best algorithm
-        - Invented multiple optimizations to make ML-based MPI autotuning feasible on large-scale systems
+        - Created new generalized MPI collective algorithms that expose a tunable radix and outperform the previous best algorithms by up to 4.5x
+        - Exploring new generalized algorithms for GPU-specific collective communication (e.g., NCCL) and new abstractions (e.g., circulant graphs)
     - role: High-Level Parallel Languages for HPC
       time: 2019-2023
       details: |
-        - Developing a new hardware/software co-design for the Standard ML language targeted at HPC systems and applications, including AI
+        - Developed a new hardware/software co-design for the Standard ML language targeted at HPC systems and applications, including AI
         - Created a new version of the NAS benchmark suite using MPL (a parallel compiler for Standard ML) to enable direct comparison between HLPLs and lower-level languages for HPC
     - role: Cache Coherence for High-Level Parallel Languages
       time: 2019-2022
       details: |
-        - Identified a low-level memory property called WARD that can be introduced by construction in high-level parallel programs
+        - Identified a low-level memory property called WARD in high-level parallel programs
         - Implemented a custom cache coherence protocol in the Sniper architectural simulator and found an average speedup of 1.46x across the PBBS benchmark suite.
 publications:
   title: Publications

@@ -51,11 +51,13 @@ def format_experiences(experiences):
     out = f'experiences:\n  title: {experiences["title"]}\n  info:\n'
     for exp in experiences['info']:
         out += f'    - role: {exp["role"]}\n'
-        out += f'      time: {exp["time"]}\n'
+        if "time" in exp:
+            out += f'      time: {exp["time"]}\n'
         out += f'      company: {exp["company"]}\n'
-        out += f'      details: |\n'
-        for detail in exp['details']:
-            out += f'        - {detail}\n'
+        if "details" in exp:
+            out += f'      details: |\n'
+            for detail in exp['details']:
+                out += f'        - {detail}\n'
     return out
 
 def format_education(education):
@@ -98,9 +100,10 @@ def main():
     out += '  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below\n'
 
     # Sidebar links
-    out += '# Sidebar links\n'
+    out += '  # Sidebar links\n'
     for k, v in data['contacts'].items():
-        out += f'{k}: {v}\n'
+        if k != 'phone' and k != 'address' and k != 'website':
+            out += f'  {k}: {v}\n'
 
     # Career profile
     out += 'career-profile:\n'

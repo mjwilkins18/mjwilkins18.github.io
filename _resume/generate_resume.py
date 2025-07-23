@@ -2,7 +2,7 @@ import yaml
 from jinja2 import Template
 
 # Load YAML file
-with open("../_data/data.yml", "r") as file:
+with open("../_data/raw_data.yml", "r") as file:
     data = yaml.safe_load(file)
 
 # Load LaTeX template

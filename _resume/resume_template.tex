@@ -1,7 +1,7 @@
 %===============================================================================
 %  Compact two–column résumé
 %===============================================================================
-\documentclass[a4paper,9pt]{extarticle}      % extarticle genuinely understands 9 pt
+\documentclass[a4paper,9pt]{extarticle}
 \usepackage[utf8]{inputenc}
 
 % ---------- Geometry & typography -------------------------------------------
@@ -14,16 +14,16 @@
 
 % ---------- Colors -----------------------------------------------------------
 \usepackage{xcolor}
-\definecolor{accent}{HTML}{0A5275}
+\definecolor{accent}{HTML}{5165A8}
 
 % ---------- Layout / headings / lists ---------------------------------------
 \usepackage{paracol}
-\columnratio{0.28}             % sidebar : main content
+\columnratio{0.28}
 \setlength{\columnseprule}{0pt}
 
 \usepackage{titlesec}
 \titleformat{\section}
-  {\color{accent}\bfseries\large}   %   << no \scshape –– avoids small-caps warning
+  {\color{accent}\bfseries\large}
   {}
   {0pt}
   {}
@@ -31,30 +31,54 @@
 \titlespacing*{\section}{0pt}{4pt}{4pt}
 
 \usepackage{enumitem}
-\setlist[itemize]{nosep,leftmargin=*}
+\setlist[itemize]{nosep,leftmargin=*,labelsep=.1em, label=\textendash,align=parleft}
 
-\usepackage{tabularx, array}
+
+\usepackage{tabularx,array}
 {% raw %}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash\setlength{\parindent}{0pt}}p{#1}}
 {% endraw %}
 
 % ---------- Hyperlinks / icons ----------------------------------------------
 \usepackage[hidelinks]{hyperref}
-\usepackage{fontawesome}       % comment out if you do not have FontAwesome
+\usepackage{fontawesome}
+
+
+% ---------------------------------------------------------------------------
+% Fixed-width box for the icons → all following text starts at the same spot
+% ---------------------------------------------------------------------------
+
+{% raw %}
+% helper: icon + small space + text on its own line
+\newcommand{\contactitem}[2]{%
+  \noindent{\color{accent}#1}\hspace{0.6em}#2\par
+}
+
+\newlength{\contacticonwidth}                       % width we are going to use
+\settowidth{\contacticonwidth}{\color{accent}\faMapMarker} % <- pick the widest icon
+
+\renewcommand{\contactitem}[2]{%
+  \noindent
+  \makebox[\contacticonwidth][l]{\color{accent}#1}%  fixed-width icon box
+  \hspace{0.6em}%                                  % gap between icon and text
+  #2\par
+}
+{% endraw %}
+
 
 % ---------- Jinja2 escape helper --------------------------------------------
 {% macro esc(s) -%}
 {{-  s
      | replace('\\', '\textbackslash{}')
-     | replace('&amp;',  '\&amp;')
-     | replace('%',  '\%')
-     | replace('$',  '\$')
-     | replace('#',  '\#')
-     | replace('_',  '\_')
-     | replace('{',  '\{')
-     | replace('}',  '\}')
-     | replace('~',  '\textasciitilde{}')
-     | replace('^',  '\textasciicircum{}')
+     | replace('&amp;', '\&amp;')
+     | replace('%', '\%')
+     | replace('$', '\$')
+     | replace('#', '\#')
+     | replace('_', '\_')
+     | replace('{', '\{')
+     | replace('}', '\}')
+     | replace('~', '\textasciitilde{}')
+     | replace('^', '\textasciicircum{}')
 -}}
 {%- endmacro %}
 
@@ -63,106 +87,160 @@
 \pagestyle{empty}
 
 \begin{paracol}{2}
+
 %-------------------------------------------------------------------------------
 % LEFT COLUMN
 %-------------------------------------------------------------------------------
 \begin{flushleft}
-
 % ---------- Name & Tagline ----------------------------------------------------
-{\huge\bfseries {{ esc(sidebar.name) }}\par}
-{\large {{ esc(sidebar.tagline) }}\par}
+{\huge\bfseries {{ esc(profile.fullname) }}\par}
+{\large {{ esc(profile.tagline) }}\par}
 \bigskip
 
-% ----- Contact ------------------------------------------------------------
+% ---------- Contact -----------------------------------------------------------
 \color{accent}\rule{\columnwidth}{0.9pt}\color{black}\smallskip
 \footnotesize
-\begin{tabular}{@{}l@{}}  % no extra left/right padding
-\faEnvelope\; \href{mailto:{{ sidebar.email }}}{ {{ sidebar.email }} }\\
-{% if sidebar.linkedin %}
-\faLinkedin\; \href{https://linkedin.com/in/{{ sidebar.linkedin }}}{ linkedin.com/in/{{ sidebar.linkedin }} }\\
+
+{% if contacts.phone %}
+  \contactitem{\faPhone}{\href{tel:{{ contacts.phone | replace(' ', '') | replace('-', '') }}}{ {{ esc(contacts.phone) }} }}
 {% endif %}
-{% if sidebar.github %}
-\faGithub\; \href{https://github.com/{{ sidebar.github }}}{ github.com/{{ sidebar.github }} }\\
+{% if contacts.email %}
+  \contactitem{\faEnvelope}{\href{mailto:{{ contacts.email }}}{ {{ contacts.email }} }}
 {% endif %}
-\end{tabular}
+{% if contacts.address %}
+  \contactitem{\faMapMarker}{ {{ esc(contacts.address) }} }
+{% endif %}
+
+\vspace{4pt} % visual break between the two groups
+
+{% if contacts.website %}
+  \contactitem{\faGlobe}{\href{https://{{ contacts.website }}}{ {{ contacts.website }} }}
+{% endif %}
+{% if contacts.linkedin %}
+  \contactitem{\faLinkedin}{\href{https://linkedin.com/in/{{ contacts.linkedin }}}{ linkedin.com/in/{{ contacts.linkedin }} }}
+{% endif %}
+{% if contacts.github %}
+  \contactitem{\faGithub}{\href{https://github.com/{{ contacts.github }}}{ github.com/{{ contacts.github }} }}
+{% endif %}
+{% if contacts.pdf %}
+  \contactitem{\faFilePdfO}{\href{ {{ contacts.pdf }} }{ PDF Copy }}
+{% endif %}
+
 \normalsize
 
 % ---------- Education ---------------------------------------------------------
-\color{accent}\rule{\columnwidth}{0.9pt}\color{black}\smallskip
-{\color{accent}\bfseries\MakeUppercase{ {{ esc(education.title) }} }}\par\smallskip
-
-\small                         % sidebar in \small, not \footnotesize
-\setlength{\tabcolsep}{0pt}    % no horizontal padding
-\begin{tabularx}{\columnwidth}{@{}p{0.85\columnwidth} >{\raggedleft\arraybackslash}X@{}}
-{% for edu in education.info %}
-\noindent\textbf{ {{ esc(edu.degree) }}} \\ {{ esc(edu.university) }} & %  ← no indent
-{{ esc(edu.time) }}\\[3pt]
-{% endfor %}
-\end{tabularx}
-\normalsize
-
+{% if sidebar.education %}
+  \color{accent}\rule{\columnwidth}{0.9pt}\color{black}\smallskip
+  {\color{accent}\bfseries\MakeUppercase{ {{ esc(education.title) }} }}\par\smallskip
+  \small
+  \begin{tabularx}{\columnwidth}{@{}p{0.85\columnwidth} p{0.15\columnwidth}@{}}
+    {% for edu in education.info %}
+      \textbf{ {{- esc(edu.degree) -}}} & {\hspace{-1em}\raggedleft  {{ esc(edu.time) }}} \\ {{ esc(edu.university) }} \\[3pt]
+    {% endfor %}
+  \end{tabularx}
+  \normalsize
+{% endif %}
 
 % ---------- Skills ------------------------------------------------------------
 \color{accent}\rule{\columnwidth}{0.9pt}\color{black}\smallskip
 {\color{accent}\bfseries\MakeUppercase{ {{ esc(skills.title) }} }}\par\smallskip
 \footnotesize
 \begin{itemize}
-{% for pair in skills.toolset | batch(2) %}
-  {% set name_dict = pair[0] %}
-  {% set list_dict = pair[1] %}
-  \item \textbf{ {{ esc(name_dict.name) }}:} {{ esc(list_dict.list) }}
-{% endfor %}
+  {% for tool in skills.toolset %}
+    \item \textbf{ {{- esc(tool.name) -}}:} {{ esc(tool.list | join(', ')) }}
+    {% if not loop.last %}\smallskip{% endif %}
+  {% endfor %}
 \end{itemize}
 \normalsize
 
+% ---------- Leadership --------------------------------------------------------
+\color{accent}\rule{\columnwidth}{0.9pt}\color{black}\smallskip
+{\color{accent}\bfseries\MakeUppercase{Leadership}}\par\smallskip
+\footnotesize
+\begin{itemize}
+  {% for lead in leadership.info %}
+    \item \textbf{ {{- esc(lead.role) -}} } ({{ esc(lead.time) }})\par {{ esc(lead.details | join('; ')) }}
+    {% if not loop.last %}\smallskip{% endif %}
+  {% endfor %}
+\end{itemize}
+\normalsize
+
+% ---------- Honors & Awards ---------------------------------------------------
+\color{accent}\rule{\columnwidth}{0.9pt}\color{black}\smallskip
+{\color{accent}\bfseries\MakeUppercase{Honors \& Awards}}\par\smallskip
+\footnotesize
+\begin{itemize}
+  {% for award in honors_awards.info %}
+    \item \textbf{ {{- esc(award.award) -}} } ({{ esc(award.time) }})\par {{ esc(award.details) }}
+    {% if not loop.last %}\smallskip{% endif %}
+  {% endfor %}
+\end{itemize}
+\normalsize
 \end{flushleft}
 
 \switchcolumn
 %-------------------------------------------------------------------------------
 % RIGHT COLUMN
 %-------------------------------------------------------------------------------
-\raggedright               % make absolutely sure nothing is indented
+\raggedright
 \setlength{\parindent}{0pt}
+
+% % ---------- Career Profile (optional) ----------------------------------------
+% {% if career_profile.summary %}
+%   \section*{ {{ esc(career_profile.title) }} }
+%   {{ esc(career_profile.summary) }}
+% {% endif %}
 
 % ---------- Experience --------------------------------------------------------
 \section*{ {{ esc(experiences.title) }} }
 {% for exp in experiences.info %}
-\textbf{ {{ esc(exp.role) }} }\hfill {{ esc(exp.time) }}\par
-\textit{ {{ esc(exp.company) }} }\par
-\begin{itemize}
-{% for d in exp.details.split('\n') if d.strip() %}
-  \item {{ esc(d.lstrip('-').strip()) }}
-{% endfor %}
-\end{itemize}
-{% if not loop.last %}\medskip{% endif %}
+  % --- ROLE + (optional) TIME ---------------------------------
+  \textbf{ {{- esc(exp.role) -}} }%
+  {% if exp.time %}\hfill {{ esc(exp.time) }}{% endif %}\par
+
+  % --- COMPANY ------------------------------------------------
+  \textit{ {{- esc(exp.company) -}} }\par
+
+  % --- DETAILS (only if present) ------------------------------
+  {% if exp.details %}
+    \begin{itemize}[nosep,leftmargin=1.7em,label=\textendash,
+                    labelsep=-1.2em,align=parleft]
+      {% for d in exp.details %}
+        \item {{ esc(d) }}
+      {% endfor %}
+    \end{itemize}
+  {% endif %}
+
+  {% if not loop.last %}\medskip{% endif %}
 {% endfor %}
 
-% ---------- Projects ----------------------------------------------------------
+
+% ---------- Research Projects -------------------------------------------------
 \section*{ {{ esc(projects.title) }} }
-{{ esc(projects.intro) }}\par\medskip
-\begin{itemize}
 {% for p in projects.info %}
-  \item \textbf{ {{ esc(p.role) }} } ({{ esc(p.time) }})
-    \begin{itemize}
-    {% for d in p.details.split('\n') if d.strip() %}
-      \item {{ esc(d.lstrip('-').strip()) }}
-    {% endfor %}
-    \end{itemize}
+  {% if p.resume|default(true) in [true, 'yes', 'y', 'true', 1] %}
+    \textbf{ {{ esc(p.role) }} } ({{ esc(p.time) }})\par
+    {% if p.details %}
+      \begin{itemize}[nosep,leftmargin=1.7em,label=\textendash,
+                      labelsep=-1.2em,align=parleft]
+        {% for d in p.details %}
+          \item {{ esc(d) }}
+        {% endfor %}
+      \end{itemize}
+    {% endif %}
+    {% if not loop.last %}\medskip{% endif %}
+  {% endif %}
 {% endfor %}
-\end{itemize}
 
 % ---------- Publications ------------------------------------------------------
 \section*{ {{ esc(publications.title) }} }
-\begin{itemize}
 {% for pub in publications.papers %}
-  \item
-    \href{https://mjwilkins.org/{{ pub.link.lstrip('/') }}}%
-         {\textbf{ {{ esc(pub.title) }} }}\\
-    \emph{ {{ pub.authors | striptags | escape }} } •
-    {{ esc(pub.conference) }}
+  \textbf{\href{https://mjwilkins.org/{{ pub.link.lstrip('/') }}}%
+         { {{- esc(pub.title) -}} }}\\%   ← % eats the following newline + spaces
+  \emph{ {{- pub.authors | striptags | escape -}} } • {{ esc(pub.conference) }}\par
   {% if not loop.last %}\medskip{% endif %}
 {% endfor %}
-\end{itemize}
+
 
 \end{paracol}
 \end{document}
